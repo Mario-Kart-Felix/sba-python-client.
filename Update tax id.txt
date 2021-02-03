@@ -1,0 +1,139 @@
+Every insurance carrier requires the same clinician information for each claim: a name, a taxonomy code, a National Provider Identifier, and a Tax Identification number. Follow the procedure below to enter or update this information in PCC’s Partner practice management system.
+
+Where Do You Get Your NPIs?: Before beginning this procedure, you need to obtain an NPI for each of your clinicians and your practice. You can register for an NPI online at the NPPES Web site (https://nppes.cms.hhs.gov/).
+
+Step 1: Run ted
+
+You can run ted from the Partner Administration window of your Partner Windows. You can also type ted at a command prompt.
+
+
+
+Step 2: Open the Providers Table
+
+From the list of tables, select number eight, Providers, and press Enter.
+
+
+
+Step 3: Select Your Practice or “Office” Provider
+
+Type the number next to the “Office” provider and press Enter. If you have a multiple-practice database, you may have several practices listed independently.
+
+
+
+Step 4: Enter the NPI and Tax ID# For Your Practice
+
+In the fields shown, enter your practice’s ten-digit NPI and nine-digit Tax ID numbers.
+
+
+
+Step 5: Press
+
+F1 – Save And Quit
+
+Press F1 to save your changes and return to the index of providers. You can also press Page Down to save and continue to the next provider.
+
+Step 6: Repeat the Process For Each Non-Retired Provider
+
+Select each provider for whom you have identifier information, enter the information, and save your changes.
+
+
+
+Which Identifiers Matter?: The four identifiers currently required on insurance claims are the Provider Name, Taxonomy Code, Tax ID#, and NPI#. If your payor requires other information on your claims, read the provids section below and contact PCC for assistance.
+
+What is a Taxonomy Code?: A Taxonomy code is a code indicating a provider’s speciality. You can pick from a list of taxonomy codes by entering an asterisk (*) and pressing Enter.
+
+Step 7: Optional: Configure Custom (Per Insurance Company) Identifiers
+
+In rare cases, an insurance company may require a unique identifier beyond the NPI, Tax ID# or Taxonomy Code. Read the Provider ID Editor article for more information.
+
+Step 8: PCC EHR Users: Add NPI Numbers and Other Identifiers to PCC EHR User Accounts
+
+The NPI numbers in the Partner billing system indicate the servicing and billing providers. In PCC EHR, charting and clinical services are also recorded with an NPI number. You should review your PCC EHR user accounts and add the appropriate NPI, along with other important identifiers used for prescribing and other services.
+
+
+
+Last modified: March 30, 2018
+Override Provider Identifiers for an Entire Insurance Batch
+See 8 Related Articles
+Share this article
+Do you need to replace all of a provider’s identifiers with a different provider’s values? Can Partner change a provider’s name or Taxonomy code on some claims, or include a custom insurance eligibility ID#? How do you configure the legacy PIN and Group numbers required by some carriers? Partner’s Provider IDs (provids) program allows you to override any claim identifier information. Use provids to set an alternate provider, or to enter custom values for the name, Taxonomy code, NPI, Tax ID, eligibility, or legacy ID numbers.
+
+Claim Control, Not Billing Record Control: When you set provider information in ted or assign a billing provider in checkout or oops, you change the provider information in Partner. The provids program changes identifier information on outgoing claims as they are generated and submitted, when you run preptags or hcfa. With that in mind, provids should be used last, and only in situations where the other solutions are insufficient or a carrier has unusual requirements.
+
+Run provids, Select an Insurance Batch and a Provider
+You can run the provids program from the Insurance Configuration (insconfig) program found in the Partner Configuration window of your Partner Windows. You can also type provids at a command prompt.
+
+
+
+
+After you run provids, select the insurance batch with which you wish to work. Remember that you may have both a paper (HCFA) and an electronic (ECS) claim batch for each carrier. Choose the correct batch and press Enter.
+
+
+
+The first provider you will see is the blank, or “None” provider entry. Press Page Down to cycle through all providers on your system. The provider name and counter in the upper-right corner will help you keep track of whose identifiers you are currently editing.
+
+
+
+The top section displays the provider’s current Tax ID and NPI numbers, as recorded in the Providers table of the Table Editor (ted). If you wish to update the provider’s Tax ID and NPI numbers for all insurance carriers, use ted, not provids.
+
+Jump to a Provider
+You can cycle through each provider by pressing Page Down and Page Up. Press F8 – Jump to Provider and enter a provider name to jump directly to their provids screen.
+
+
+
+
+
+
+Set an Alternate Provider
+If you need Partner to complete replace a provider’s identifiers with another provider’s identifiers during billing, use the provids program. After running provids and selecting an insurance batch and provider, enter the new provider in the Claim Provider field.
+
+
+
+
+
+
+Outgoing claims for the provider shown at the top of the screen will now contain the claim provider’s identifiers. This will only occur for the chosen insurance batch. When you submit your claims electronically or print HCFA forms, Partner’s claim generating program will replace the provider name, NPI number, and Tax ID number.
+
+Override Default Provider ID Values
+You can configure Provider names, Taxonomy code, Tax ID, and NPI numbers in the Providers table in the Table Editor. However, you can enter custom values per-Insurance Batch in the Provider Table Override fields in provids.
+
+
+
+No matter which provider appears in the Claim Provider field, entries in the “Provider Table Override” fields will take precedence. Avoid using both a claim provider and the override fields at the same time. However, if a claim provider is selected, any override fields with content will be used first, and Partner will refer to the claim provider or the original provider only for those left blank. You do not need to fill out every field in the Override section.
+
+Enter Legacy Insurance Identifiers
+Before the complete implementation of the National Provider Identifier, insurance carriers had their own set of identifiers. These might include a PIN, Group, Eligibility, or other ID number. You can still access these fields in provids:
+
+
+
+In the example above, the Ins ID and Alt ID numbers, along with the Insurance Eligibility number, may appear on this provider’s claims. The provider’s Tax ID and NPI numbers will be those entered in the Table Editor (ted), as shown in the top section.
+
+Changes May Not Affect Claims: Are your claims configured to display the NPI number? Or are your claims configured to show the PIN and Group numbers? Changing the Legacy Identifiers will only change your claims if they are configured to use those identifiers. Once PCC configures your claims to use the new NPI number, the legacy fields may be ignored. Contact PCC for further assistance.
+
+Last modified: November 3, 2020
+Related Articles
+Here are some related articles in Manage and Administer Your PCC Tools > Configure Partner and Billing Functions > Configure Providers > Manage and Administer Your PCC Tools > Configure Partner and Billing Functions > Add and Configure Insurance Companies:
+Add an Insurance Plan to Partner
+
+Families bring in new insurance cards all the time, particularly if you are a new client or if it is January. While taking time to add and configure a new plan in Partner is important, many new insurances can be added quickly and easily.
+The Insurance Plan Tables
+
+This article is a reference to the Insurance Companies table and the Insurance Groups table, both of which are in the Table Editor (ted). They contain information about the insurance policies...
+Edit HCFA Form Output (hedfe)
+
+The hedfeprogram is a HCFA/CMS 1500 form editor. It can configure both the layout and the content of claim forms. You can use the program to move form data around or change how it is...
+Override Provider Identifiers for an Entire Insurance Batch
+
+Do you need to replace all of a provider's identifiers with a different provider's values? Can Partner change a provider's name or Taxonomy code on some claims, or include a custom...
+Add and Configure a New Clinician to Your PCC System
+
+You can add a new clinician to Partner's tables in just a few seconds. But what about scheduling and insurance claim configuration? Will reports work properly for the new clinician?
+Update NPIs, Taxonomy Codes, and Tax IDs
+
+Every insurance carrier requires the same clinician information for each claim: a name, a taxonomy code, a National Provider Identifier, and a Tax Identification number. Follow the procedure below to enter or update this information in Partner.
+Tricare Merger: Become Credentialed and Enroll With Tricare East
+
+Tricare North and Tricare South are merging into a new entity: Tricare East. If your practice wishes to submit claims to military families who were on Tricare North or Tricare South, you must become...
+Update Patient Insurance Policies: Billing Office
+
+This is a placeholder for the article excerpt, a one or two sentence summary.
